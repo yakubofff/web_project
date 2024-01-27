@@ -1,36 +1,45 @@
-from typing import Union
-from pydantic import BaseModel
-from time import sleep
+from sqlalchemy import ForeignKey, String
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
+from typing import List, Optional
+
+from sqlalchemy import create_engine
 
 
-class User(BaseModel):
-    name: str
-    gender: bool
-    debit_card_number: float
-    email: str
+class Base(DeclarativeBase):
+    pass
 
 
-class Database:
-    container: dict[int, User]
+class User(Base):
+    __tablename__ = "user_table"
 
-    def __init__(self) -> None:
-        self.container = {}
+    id: Mapped[int] = mapped_column(primary_key=True)
+    login: Mapped[str] = mapped_column(String(20))
+    password: Mapped[str] = mapped_column(String(20))
 
-    async def add_user(self, user: User) -> int:
-        if not self.container:
-            new_id = 1
-        else:
-            new_id = max(self.container.keys()) + 1
-        sleep(1)
-        self.container[new_id] = user
-        return new_id
+    def __str__(self) -> str:
+        return f"{self.id} {self.login}"
 
-    async def delete_user(self, id: int) -> None:
-        sleep(1)
-        del self.container[id]
+    def __repr__(self) -> str:
+        return f"{self.id} {self.login}"
 
-    async def get_user(self, id: int) -> Union[User, None]:
-        sleep(1)
-        if id not in self.container:
-            return None
-        return self.container[id]
+
+class Address(Base):
+    __tablename__ = "address_table"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+
+    user: Mapped["User"] = relationship(back_populates="addresses")
+
+    user_id: Mapped[int] = mapped_column(ForeignKey("user_table.id"))
+
+    def __str__(self) -> str:
+        return f"{self.id}"
+
+    def __repr__(self) -> str:
+        return f"{self.id}"
+
+
+engine = create_engine("sqlite:///test.db")
+
+if __name__ == "__main__":
+    Base.metadata.create_all(engine)
