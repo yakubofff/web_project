@@ -2,7 +2,8 @@ from fastapi import FastAPI
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from sqlalchemy.orm import Session
-from src.db import User, Address, engine
+from src.db import User, engine
+from uuid import uuid4
 
 app = FastAPI()
 
@@ -35,6 +36,17 @@ async def create_user(user: dict):
     user_id = user.id
 
     return JSONResponse(content={"user_id": user_id}, status_code=200)
+
+
+@app.post("/users/login/")
+async def login_user(user: dict):
+
+    token = 'somewhere'
+    check_user = session.query(User).filter_by(login=user['login'])
+    if check_user['password'] == user['password']:
+        pass
+    else:
+        return FileResponse("static/html/index.html")
 
 
 @app.post("/users/delete/{user_id}")
