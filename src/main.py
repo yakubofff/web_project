@@ -12,6 +12,13 @@ app.mount("/static", StaticFiles(directory="static", html=True), name="static")
 session = Session(engine)
 
 
+def search_user(login):
+    try:
+        return session.query(User).filter_by(login="login").one()
+    except ():
+        return None
+
+
 @app.get("/")
 async def home():
     return FileResponse("static/html/index.html")
@@ -19,12 +26,11 @@ async def home():
 
 @app.get("/hello/")
 async def hello():
-    return FileResponse("static/html/hello.html")
+    return FileResponse("static/html/index.html")
 
 
 @app.post("/users/new/")
 async def create_user(user: dict):
-
     print(user['login'], user['password'])
 
     user = User(
@@ -40,17 +46,30 @@ async def create_user(user: dict):
 
 @app.post("/users/login/")
 async def login_user(user: dict):
+    token = str(uuid4())
+    check_user = search_user(user['login'])
 
-    token = 'somewhere'
-    check_user = session.query(User).filter_by(login=user['login'])
-    if check_user['password'] == user['password']:
-        pass
+    if check_user is None:
+        return JSONResponse(status_code=200)
+    elif check_user['password'] != user['password']:
+        return JSONResponse(status_code=200)
     else:
-        return FileResponse("static/html/index.html")
+        return JSONResponse(content={token: token}, status_code=200)
 
 
+@app.post("/users/sing_up/")
+async def sing_up_user(user: dict):
+    check_user = search_user(user['login'])
+    if check_user is None:
+        session.add(user)
+        session.commit()
+    else:
+        return JSONResponse(status_code=200)
+
+"""
 @app.post("/users/delete/{user_id}")
 async def delete_user(user_id: int):
-
-    session.query(User).filter_by(id=id).delete()
-    session.commit()
+    try:
+        session.query(User).filter_by(id=id).delete()
+        session.commit()
+"""

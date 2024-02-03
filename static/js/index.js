@@ -19,7 +19,7 @@ function onRegisterButtonClick() {
     .then((json) => json.user_id)
     .then((user_id) => sessionStorage.setItem("user_id", user_id.toString()))
     .catch((error) => console.log(error));
-  window.location.replace("http://localhost:8000/div/");
+  window.location.replace("http://localhost:8000/login/");
 }
 
 function onLoginButtonClick() {
@@ -46,3 +46,6 @@ function onLoginButtonClick() {
   window.location.replace("http://localhost:8000/div/");
 }
 
+function onTestButtonClick() {
+
+}

@@ -4,38 +4,35 @@
        <meta charset="UTF-8">
 	 <title>Тестирование</title>
 	 <link rel="icon" type="image/x-icon" href="favicon.ico">
+     <link rel="stylesheet" href="/static/css/styles.css">
 
 	<style>
-   body {
-  background: #d6eaf8
-}
-.button {
-  text-decoration: none;;
-  display: inline-block;
-  color: white;
-  padding: 20px 30px;
-  margin: 10px 20px;
-  border-radius: 23px;
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  background-image: linear-gradient(to right, #85c9be 0%, #008B8B 51%, #9EEFE1 100%);
-  background-size: 200% auto;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  transition: .5s;
-} 
- }
-}
-.gradient-button:hover {
-  background-position: right center;
-}
+        body {
+          margin: 0;
+          font-family: system-ui, sans-serif
+          font-size: 1rem;
+          font-weight: 400;
+          line-height: 1.5;
+          color: #212529;
+          background-color: #d6eaf8;
+          -webkit-text-size-adjust: 100%;
+          -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
     </style>
   </head>
    <body>
 
-<a href="test.html" class="button" id="button1">пройти тест</a>
 
-<a href="scoreboard.html" class="button" id="button2">результаты</a>
+<div class="text-field">
+<label class="text-field__label" for="login">Добро пожаловать!</label>
+</div>
 
+<div class="text-field">
+<a href="test.html" class="floating-button" id="button1">пройти тест</a>
+</div>
+
+<div class="text-field">
+<a href="scoreboard.html" class="floating-button" id="button2">результаты</a>
+</div>
 	</body>	
 </html>
