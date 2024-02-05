@@ -46,6 +46,23 @@ function onLoginButtonClick() {
   window.location.replace("http://localhost:8000/div/");
 }
 
-function onTestButtonClick() {
-
+function CheckLoginValid(status) {
+    if (status == 200):
+        window.location.replace("http://localhost:8000/login/");
+    else if (status == 400):
+        alert("Incorrect username");
+    else if (status == 401)
+        alert("Incorrect password");
+    else:
+        window.location.replace("http://localhost:8000/teapot/")
 }
+
+function CheckSingUpValid(status) {
+    if (status == 200):
+        window.location.replace("http://localhost:8000/div/")
+    else if (status == 401):
+        alert("Incorrect username");
+    else:
+        window.location.replace("http://localhost:8000/teapot/")
+}
+

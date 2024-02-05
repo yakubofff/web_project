@@ -50,9 +50,9 @@ async def login_user(user: dict):
     check_user = search_user(user['login'])
 
     if check_user is None:
-        return JSONResponse(status_code=200)
+        return JSONResponse(status_code=400, content={'error': 'incorrect username'})
     elif check_user['password'] != user['password']:
-        return JSONResponse(status_code=200)
+        return JSONResponse(status_code=401, content={'error': 'incorrect password'})
     else:
         return JSONResponse(content={token: token}, status_code=200)
 
@@ -64,7 +64,7 @@ async def sing_up_user(user: dict):
         session.add(user)
         session.commit()
     else:
-        return JSONResponse(status_code=200)
+        return JSONResponse(status_code=401, content={'error': 'name already used'})
 
 """
 @app.post("/users/delete/{user_id}")
