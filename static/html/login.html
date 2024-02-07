@@ -41,31 +41,28 @@
     </style>
 </head>
 <body>
-<section class="main_containder">
 
-    <div class="text-field">
-        <label class="text-field__label" for="login">Введите имя пользователя:</label>
+<div class="main-container">
+<div class="text-field">
+    <label class="text-field__label">Введите имя пользователя:</label>
+</div>
+<br/>
+<div class="text-field">
+    <input class="text-field__input" minlength=6 maxlength=20 type="text" name="login" id="user_login" placeholder="Password" value="">
+</div>
+<br/>
+<div class="text-field">
+    <label class="text-field__label">Введите пароль:</label>
+</div>
+<br/>
+<div class="text-field">
+    <input class="text-field__input" minlength=6 maxlength=20 type="text" name="login" id="user_password" placeholder="Login" value="">
+</div>
+<br/>
+<div class="text-field">
+    <a href="scoreboard.html" class="floating-button" id="button2">Войти</a>
+</div>
     </div>
 
-    <div class="text-field">
-        <input class="text-field__input" minlength=6 maxlength=20 type="text" name="login" id="user_login"
-               placeholder="Login" value="">
-    </div>
-    <div class="text-field">
-        <label class="text-field__label" for="login">Введите пароль:</label>
-    </div>
-
-    <div class="text-field">
-        <input class="text-field__input" minlength=6 maxlength=20 type="password" name="login" id="user_password"
-               placeholder="Password" value="">
-    </div>
-
-    <div class="text-field">
-        <a class="floating-button" onclick=onLoginButtonClick()>Войти</a>
-    </div>
-
-
-
-</section>
 </body>
 </html>

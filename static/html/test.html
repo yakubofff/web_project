@@ -86,13 +86,19 @@ main-container {
 
        <div class="main-container">
           <label class="text-field__label">I am...</label>
-          <input type="checkbox" name="login" id="iam1" value="">
+          <input type="checkbox" name="iam" id="iam0" value="">
           <label>Heavy</label>
             <br/>
-          <input type="checkbox" name="login" id="iam2" value="">
+          <input type="checkbox" name="iam" id="iam1" value="">
+          <label>sandvich</label>
+            <br/>
+          <input type="checkbox" name="iam" id="iam2" value="">
           <label>weapons</label>
             <br/>
-          <input type="checkbox" name="login" id="iam3" value="">
+          <input type="checkbox" name="iam" id="iam3" value="">
+          <label>mini gunner</label>
+            <br/>
+          <input type="checkbox" name="iam" id="iam4" value="">
           <label>guy</label>
        </div>
 
@@ -117,38 +123,38 @@ main-container {
        </div>
 
        <div class="main-container">
-          <label class="text-field__label">She weights __________ kg</label>
-          <input class="text-field__input" type="number" name="login" id="user_login" value="">
+          <label class="text-field__label">She weighs __________ kg</label>
+          <input class="text-field__input" type="number" name="weight" id="weight" value="">
        </div>
 
        <div class="main-container">
           <label class="text-field__label">And fires</label>
-          <input type="radio" name="cost" id="cost100" value="">
+          <input type="radio" name="bullet_cost" id="bullet_cost100" value="">
           <label>100$</label>
             <br/>
-          <input type="radio" name="cost" id="cost200" value="">
+          <input type="radio" name="bullet_cost" id="bullet_cost200" value="">
           <label>200$</label>
             <br/>
-          <input type="radio" name="cost" id="cost300" value="">
+          <input type="radio" name="bullet_cost" id="bullet_cost300" value="">
           <label>300$</label>
             <br/>
-          <input type="radio" name="cost" id="cost400" value="">
+          <input type="radio" name="bullet_cost" id="bullet_cost400" value="">
           <label>400$</label>
        </div>
 
        <div class="main-container">
           <label>Custom Tooled</label>
           <select id="fires" name="fires">
-            <option value="apple">Bullets</option>
-            <option value="banana">Cartiges</option>
-            <option value="orange">Magazines</option>
+            <option value="bullets">Bullets</option>
+            <option value="cartridges">Cartridges</option>
+            <option value="Magazines">Magazines</option>
           </select>
        </div>
 
        <div class="main-container">
           <label class="text-field__label">at ____ thousand rounds per minute.</label>
           <label>1</label>
-          <input type="range" min="1" max="10" value="5" id="speed">
+          <input type="range" min="1" max="10" value="5" id="fire_speed">
           <label>10</label>
        </div>
 
@@ -159,16 +165,16 @@ main-container {
 
        <div class="main-container">
           <label class="text-field__label">It costs</label>
-          <input type="radio" name="cost" id="cost100000" value="">
+          <input type="radio" name="time_cost" id="time_cost100000" value="">
           <label>100.000$</label>
-            <br/>
-          <input type="radio" name="cost" id="cost200000" value="">
+          <br/>
+          <input type="radio" name="time_cost" id="time_cost200000" value="">
           <label>200.000$</label>
             <br/>
-          <input type="radio" name="cost" id="cost300000" value="">
+          <input type="radio" name="time_cost" id="time_cost300000" value="">
           <label>300.000$</label>
             <br/>
-          <input type="radio" name="cost" id="cost400000" value="">
+          <input type="radio" name="time_cost" id="time_cost400000" value="">
           <label>400.000$</label>
        </div>
 
@@ -196,7 +202,13 @@ main-container {
           <label>twelve</label>
             <br/>
           <input type="checkbox" name="login" id="time3" value="">
+          <label>four</label>
+            <br/>
+          <input type="checkbox" name="login" id="time4" value="">
           <label>seconds</label>
+            <br/>
+          <input type="checkbox" name="login" id="time5" value="">
+          <label>minutes</label>
        </div>
 
        <div class="main-container">
@@ -218,18 +230,18 @@ main-container {
        <div class="main-container">
           <label>Oh my </label>
           <select id="omg" name="omg">
-            <option value="apple">gush</option>
-            <option value="banana">god</option>
-            <option value="orange">Lumbabalumba</option>
+            <option value="gush">gush</option>
+            <option value="god">god</option>
+            <option value="BalumbaBumba">LumbaBalumba</option>
           </select>
        </div>
 
        <div class="main-container">
           <label>Who</label>
           <select id="WHO?" name="WHO?">
-            <option value="apple">traded</option>
-            <option value="banana">touched</option>
-            <option value="orange">stole</option>
+            <option value="traded">traded</option>
+            <option value="touched">touched</option>
+            <option value="stole">stole</option>
           </select>
           <label> Sasha?</label>
        </div>
@@ -304,6 +316,7 @@ main-container {
 
        <div class="main-container">
           <label class="text-field__label">Bullet</label>
+          <img src="/static/images/bullet.png" />
        </div>
 
        <div class="main-container">
@@ -311,22 +324,22 @@ main-container {
        </div>
 
        <div class="main-container">
-          <input type="checkbox" name="who" id="haha1" value="">
+          <input type="checkbox" name="laugh" id="haha1" value="">
           <label>Waaaaaaaahhhhhhhhh!</label>
             <br/>
-          <input type="checkbox" name="who" id="haha2" value="">
+          <input type="checkbox" name="laugh" id="haha2" value="">
           <label>Heheheha!</label>
             <br/>
-          <input type="checkbox" name="who" id="haha3" value="">
+          <input type="checkbox" name="laugh" id="haha3" value="">
           <label>Uwaaaaaaaaaaah!</label>
             <br/>
-          <input type="checkbox" name="who" id="haha5" value="">
+          <input type="checkbox" name="laugh" id="haha5" value="">
           <label>Ahahahahahahahahahaha!</label>
             <br/>
-          <input type="checkbox" name="who" id="haha6" value="">
+          <input type="checkbox" name="laugh" id="haha6" value="">
           <label>Ehehehehehe!</label>
             <br/>
-          <input type="checkbox" name="who" id="haha7" value="">
+          <input type="checkbox" name="laugh" id="haha7" value="">
           <label>Cry some more!</label>
        </div>
 

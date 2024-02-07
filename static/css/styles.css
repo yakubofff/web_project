@@ -38,7 +38,7 @@
 
 .text-field__input {
   display: block;
-  width: 15%;
+  width: 35%;
   height: calc(2.25rem + 2px);
   padding: 0.375rem 0.75rem;
   font-family: 'Montserrat', sans-serif;
@@ -74,7 +74,7 @@
 .floating-button {
   text-decoration: none;
   display: inline-block;
-  width: 15%;
+  width: 35%;
   height: 45px;
   line-height: 45px;
   border-radius: 20px;
