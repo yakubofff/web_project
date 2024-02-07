@@ -23,7 +23,7 @@ class User(Base):
         return f"{self.id} {self.login} {self.password}"
 
 
-class Tokens(Base):
+class Token(Base):
     __tablename__ = "token_table"
 
     id: Mapped[int] = mapped_column(primary_key=True)
@@ -37,7 +37,7 @@ class Tokens(Base):
         return f"{self.id} {self.login} {self.token}"
 
 
-class Results(Base):
+class Result(Base):
     __tablename__ = "result_table"
 
     id: Mapped[int] = mapped_column(primary_key=True)

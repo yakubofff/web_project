@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from sqlalchemy.orm import Session
-from src.db import User, engine
+from src.db import User,Token, Result, engine
 from uuid import uuid4
 
 app = FastAPI()
@@ -17,6 +17,34 @@ def search_user(login):
         return session.query(User).filter_by(login="login").one()
     except ():
         return None
+
+
+def check_answers(answers):
+    counter = 0
+    counter += (int(answers['iam']) == 21)
+    counter += (int(answers['and_this']) == 2)
+    counter += (int(answers['gun_weight']) == 150)
+    counter += (int(answers['bullet_cost']) == 4)
+    counter += (int(answers['it_fires']) == 2)
+    counter += (int(answers['fire_speed']) == 10)
+    counter += (int(answers['time_cost']) == 4)
+    counter += (int(answers['fire_this']) == 2)
+    counter += (int(answers['fire_time']) == 11)
+    counter += (int(answers['omg']) == 2)
+    counter += (int(answers['who']) == 2)
+    counter += (int(answers['who_touched_my_gun']) == 4)
+    counter += (int(answers['laugh']) == 55)
+
+    try:
+        user = session.query(Token).filter_by(token=answers["token"]).one()
+        try:
+            user = session.query(Result).filter_by(login=user["login"]).one()
+
+        except ():
+            user_result = Result()
+
+    except ():
+        return FileResponse("static/html/teapot.html")
 
 
 @app.get("/")
@@ -65,6 +93,7 @@ async def sing_up_user(user: dict):
         session.commit()
     else:
         return JSONResponse(status_code=401, content={'error': 'name already used'})
+
 
 """
 @app.post("/users/delete/{user_id}")
